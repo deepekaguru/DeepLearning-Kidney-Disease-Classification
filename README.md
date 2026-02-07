@@ -1,9 +1,7 @@
 
-Kidney CT Image Classification using PyTorch
+**Kidney CT Image Classification using PyTorch**
 
-Project Overview
-
-This project focuses on classifying kidney CT scan images into four medical conditions:
+Project Overview: This project focuses on classifying kidney CT scan images into four medical conditions:
 
 Normal
 
@@ -15,25 +13,8 @@ Tumor
 
 The goal is to build a robust and clinically meaningful image classification model using transfer learning while handling class imbalance and ensuring proper evaluation.
 
-Problem Statement
 
-Medical imaging datasets often:
-
-Have limited labeled data
-
-Are class-imbalanced
-
-Require careful evaluation since false negatives can be critical
-
-This project addresses these challenges by:
-
-Leveraging a pretrained CNN backbone
-
-Applying class-weighted loss
-
-Evaluating performance using appropriate medical metrics
-
-Dataset Description
+**Dataset Description**
 
 Data Type: Kidney CT scan images
 
@@ -46,7 +27,7 @@ Challenge: Class imbalance (Stone class has fewer samples)
 
 **Approach & Methodology**
 
-1️⃣ Data Preprocessing
+1. Data Preprocessing
 
 Images resized to 224×224 for compatibility with pretrained models
 
@@ -54,7 +35,7 @@ Normalization applied using ImageNet mean and standard deviation
 
 Data augmentation (rotation, affine transforms) applied only to training data to improve generalization
 
-2️⃣ Train / Validation / Test Split
+2️. Train / Validation / Test Split
 
 Train: 70%
 
@@ -64,7 +45,7 @@ Test: 15%
 
 Validation and test sets were not augmented to ensure unbiased evaluation.
 
-3️⃣ Model Architecture
+3️. Model Architecture
 
 Backbone: EfficientNet (pretrained on ImageNet)
 
@@ -78,7 +59,7 @@ Lower risk of overfitting on medical datasets
 
 Computationally efficient
 
-4️⃣ Two-Phase Training Strategy
+4️. Two-Phase Training Strategy
 Phase 1 – Train Classifier Head
 
 Backbone frozen
@@ -95,7 +76,7 @@ Lower learning rate used
 
 Allows adaptation to medical-specific patterns
 
-5️⃣ Handling Class Imbalance
+5️. Handling Class Imbalance
 
 Used class-weighted CrossEntropyLoss
 
